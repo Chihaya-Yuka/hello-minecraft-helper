@@ -74,6 +74,9 @@ class MinecraftHelperApp(App):
         def manage_resource_packs(instance):
             webbrowser.open(config.FORUMURL)
 
+        def mcbbs(instance):
+            webbrowser.open(config.FORUMURL)
+
         def backup_saves(instance):
             webbrowser.open(config.ONLINEPLAY)
         
@@ -107,6 +110,8 @@ class MinecraftHelperApp(App):
         save_backup_button = Button(text="工具箱", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         save_backup_button.bind(on_press=toolkit)
 
+        save_backup_button = Button(text="m社", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
+        save_backup_button.bind(on_press=mcbbs)
         # 设置按钮颜色为深棕色
         for button in [launch_game_button, mod_management_button, resource_pack_button, save_backup_button]:
             button.background_normal = ''  # 去掉默认背景图片
