@@ -98,9 +98,6 @@ class MinecraftHelperApp(App):
         launch_game_button = Button(text="启动游戏", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         launch_game_button.bind(on_press=launch_game)
 
-        mod_management_button = Button(text="模组下载", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
-        mod_management_button.bind(on_press=manage_mods)
-
         resource_pack_button = Button(text="资源下载", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         resource_pack_button.bind(on_press=manage_resource_packs)
 
