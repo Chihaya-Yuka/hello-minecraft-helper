@@ -24,7 +24,7 @@
 1. 克隆或下载本仓库：
 
     ```bash
-    git clone https://github.com/yourusername/hello-minecraft-helper.git
+    git clone https://github.com/neo-huanyu/hello-minecraft-helper.git
     ```
 
 2. 进入项目目录并安装依赖：
