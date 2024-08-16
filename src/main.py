@@ -74,7 +74,7 @@ class MinecraftHelperApp(App):
             webbrowser.open(config.FORUMURL)
 
         def backup_saves(instance):
-            webbrowser.open(config.FORUMURL)
+            webbrowser.open(config.ONLINEPLAY)
 
         # 创建按钮并绑定回调函数
         launch_game_button = Button(text="启动游戏", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')

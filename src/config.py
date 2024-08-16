@@ -13,3 +13,4 @@ class config:
     RUNTIME = 'Kivy 2.3.0'
     SYSTEM = system_info()
     FORUMURL = 'https://mcbbs.app/'
+    ONLINEPLAY = 'https://online.mcbox.duowan.click/'
