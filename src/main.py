@@ -75,6 +75,19 @@ class MinecraftHelperApp(App):
 
         def backup_saves(instance):
             webbrowser.open(config.ONLINEPLAY)
+        
+        def toolkit(instance):
+            if config.SYSTEM: # 当处于 Windows 环境中，config.SYSTEM 为真
+                os.system('start.py')
+            else:
+                content = BoxLayout(orientation='vertical', padding=10)
+                text = '只有电脑端支持工具箱功能。'
+                content.add_widget(Label(text=text, font_size='20sp'))
+                close_button = Button(text='关闭', size_hint_y=None, height=BUTTON_HEIGHT, font_name='Roboto')
+                content.add_widget(close_button)
+                popup = Popup(title='警告', content=content, size_hint=(None, None), size=(300, 200))
+                close_button.bind(on_press=popup.dismiss)
+                popup.open()
 
         # 创建按钮并绑定回调函数
         launch_game_button = Button(text="启动游戏", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
@@ -88,6 +101,9 @@ class MinecraftHelperApp(App):
 
         save_backup_button = Button(text="多人游戏", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         save_backup_button.bind(on_press=backup_saves)
+
+        save_backup_button = Button(text="工具箱", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
+        save_backup_button.bind(on_press=toolkit)
 
         # 设置按钮颜色为深棕色
         for button in [launch_game_button, mod_management_button, resource_pack_button, save_backup_button]:
