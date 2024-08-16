@@ -12,3 +12,4 @@ class config:
     COMPANY = 'Huanyu, Inc.'
     RUNTIME = 'Kivy 2.3.0'
     SYSTEM = system_info()
+    FORUMURL = 'https://mcbbs.app/'
