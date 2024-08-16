@@ -107,7 +107,7 @@ class MinecraftHelperApp(App):
         # 底部导航栏
         navbar = ColoredBoxLayout(size_hint_y=None, height=60, spacing=10, padding=[20, 10, 20, 10], color=NAVBAR_COLOR)
 
-        def null():
+        def null(instance):
             pass
         # 导航栏按钮的回调函数
         def show_about(instance):
