@@ -78,7 +78,7 @@ class MinecraftHelperApp(App):
         
         def toolkit(instance):
             if config.SYSTEM: # 当处于 Windows 环境中，config.SYSTEM 为真
-                os.startfile('./tools')
+                os.startfile('{}/tools'.format(os.getcwd()))
             else:
                 content = BoxLayout(orientation='vertical', padding=10)
                 text = '只有电脑端支持工具箱功能。'
