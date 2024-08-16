@@ -1,4 +1,6 @@
+import os
 import kivy
+import webbrowser
 from kivy.app import App
 from config import config
 from kivy.uix.boxlayout import BoxLayout
@@ -53,28 +55,38 @@ class MinecraftHelperApp(App):
 
         # 按钮的回调函数
         def launch_game(instance):
-            print("启动游戏按钮被按下")
+            if config.SYSTEM: # 当处于 Windows 环境中，config.SYSTEM 为真
+                os.system('start.py')
+            else:
+                content = BoxLayout(orientation='vertical', padding=10)
+                text = '只有电脑端支持启动功能。'
+                content.add_widget(Label(text=text, font_size='20sp'))
+                close_button = Button(text='关闭', size_hint_y=None, height=BUTTON_HEIGHT, font_name='Roboto')
+                content.add_widget(close_button)
+                popup = Popup(title='警告', content=content, size_hint=(None, None), size=(300, 200))
+                close_button.bind(on_press=popup.dismiss)
+                popup.open()
 
         def manage_mods(instance):
-            print("模组管理按钮被按下")
+            webbrowser.open(config.FORUMURL)
 
         def manage_resource_packs(instance):
-            print("资源包管理按钮被按下")
+            webbrowser.open(config.FORUMURL)
 
         def backup_saves(instance):
-            print("存档备份按钮被按下")
+            webbrowser.open(config.FORUMURL)
 
         # 创建按钮并绑定回调函数
         launch_game_button = Button(text="启动游戏", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         launch_game_button.bind(on_press=launch_game)
 
-        mod_management_button = Button(text="模组管理", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
+        mod_management_button = Button(text="模组下载", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         mod_management_button.bind(on_press=manage_mods)
 
-        resource_pack_button = Button(text="资源包管理", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
+        resource_pack_button = Button(text="资源下载", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         resource_pack_button.bind(on_press=manage_resource_packs)
 
-        save_backup_button = Button(text="存档备份", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
+        save_backup_button = Button(text="多人游戏", size_hint=(1, None), height=BUTTON_HEIGHT, font_name='Roboto')
         save_backup_button.bind(on_press=backup_saves)
 
         # 设置按钮颜色为深棕色
