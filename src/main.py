@@ -107,16 +107,9 @@ class MinecraftHelperApp(App):
         # 底部导航栏
         navbar = ColoredBoxLayout(size_hint_y=None, height=60, spacing=10, padding=[20, 10, 20, 10], color=NAVBAR_COLOR)
 
+        def null():
+            pass
         # 导航栏按钮的回调函数
-        def go_home(instance):
-            print("主页按钮被按下")
-
-        def open_settings(instance):
-            print("设置按钮被按下")
-
-        def open_help(instance):
-            print("帮助按钮被按下")
-
         def show_about(instance):
             content = BoxLayout(orientation='vertical', padding=10)
             text = 'Version:{}\n{}\n'.format(config.VERSION,config.RUNTIME)
@@ -130,9 +123,7 @@ class MinecraftHelperApp(App):
 
         # 创建导航栏按钮并绑定回调函数
         nav_buttons = [
-            ("主页", go_home),
-            ("设置", open_settings),
-            ("帮助", open_help),
+            ("主页", null),
             ("关于", show_about)  # 新增“关于”按钮
         ]
 
