@@ -1,7 +1,7 @@
 import os
 import kivy
 import subprocess
-import webbrowser
+import webview  # 新增的导入
 from kivy.app import App
 from config import config
 from kivy.uix.boxlayout import BoxLayout
@@ -56,15 +56,20 @@ class MinecraftHelperApp(App):
             else:
                 show_popup("警告", "只有电脑端支持启动功能。")
 
+        def open_webview_window(url, title="WebView"):
+            # 使用 pywebview 创建一个新窗口加载网页
+            webview.create_window(title, url)
+            webview.start()
+
         def manage_mods(instance):
-            webbrowser.open(config.FORUMURL)
+            open_webview_window(config.FORUMURL, "模组下载")
 
         def manage_resource_packs(instance):
-            webbrowser.open(config.FORUMURL)
+            open_webview_window(config.FORUMURL, "资源下载")
 
         def backup_saves(instance):
-            webbrowser.open(config.ONLINEPLAY)
-        
+            open_webview_window(config.ONLINEPLAY, "多人游戏")
+
         def toolkit(instance):
             if config.SYSTEM:
                 folder_path = '{}\\tools'.format(os.getcwd())
@@ -73,7 +78,7 @@ class MinecraftHelperApp(App):
                 show_popup("警告", "只有电脑端支持工具箱功能。")
 
         def mcbbs(instance):
-            webbrowser.open(config.FORUMURL)
+            open_webview_window(config.FORUMURL, "m社")
 
         def show_popup(title, text):
             content = BoxLayout(orientation='vertical', padding=10)
