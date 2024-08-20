@@ -26,6 +26,7 @@ class Setup:
         self.update_path()
 
 if __name__ == "__main__":
+    print('请稍后，正在启动中......')
     setup = Setup()
     setup.setup_environment()
     subprocess.run(['python', 'main.py'])
