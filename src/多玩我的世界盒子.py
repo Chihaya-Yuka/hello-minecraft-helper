@@ -20,6 +20,7 @@ class Setup:
         if sys.platform == 'win32' and self.is_first_open:
             new_path = f"{os.environ['PATH']};{os.getcwd()}\\share\\sdl2\\bin;{os.getcwd()}\\share\\glew\\bin"
             os.environ['PATH'] = new_path
+            with open('First Open','w') as file: pass
 
     def setup_environment(self):
         self.run_commands()
