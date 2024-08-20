@@ -9,7 +9,7 @@ commands = [
 ]
 for command in commands:
   os.system(command)
-if sys.platform == 'win32'
+if sys.platform == 'win32':
   os.system('set PATH=%PATH%;%cd%\share\sdl2\bin;%cd%\share\glew\bin')
 
 os.system('python main.py')
